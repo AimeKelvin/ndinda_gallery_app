@@ -293,7 +293,7 @@ export function GalleryPage() {
         <span>Gallery App</span>
 
         <span>
-          React · TypeScript · Node.js · PostgreSQL
+          Aime Kelvin
         </span>
       </footer>
 
