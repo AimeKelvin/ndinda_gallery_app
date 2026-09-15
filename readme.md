@@ -1,19 +1,20 @@
-# Social App
+# Gallery App
 
-A simple full-stack social media application where users can create an account, log in, and manage posts.
+A simple full-stack image gallery application where users can view, upload, edit, and delete gallery items.
 
 The project is built as a learning project to practice modern web development technologies including **TypeScript, React, Node.js, PostgreSQL, REST APIs, Git, and GitHub**.
 
 ## Features
 
-* User registration and login
-* User authentication
-* View posts
-* Create new posts
-* Edit your posts
-* Delete your posts
+* View all gallery images
+* Upload new images
+* Add image titles and descriptions
+* Edit existing gallery items
+* Replace images
+* Delete gallery items
 * REST API for communication between frontend and backend
 * PostgreSQL database for persistent data storage
+* Simple and responsive interface
 
 ## Tech Stack
 
@@ -22,7 +23,7 @@ The project is built as a learning project to practice modern web development te
 | **TypeScript** | Adds type safety and improves code maintainability |
 | **React**      | Builds the interactive frontend                    |
 | **Node.js**    | Runs the backend server                            |
-| **PostgreSQL** | Stores users and posts                             |
+| **PostgreSQL** | Stores gallery item information                    |
 | **REST API**   | Connects the frontend with the backend             |
 | **Git**        | Tracks project changes                             |
 | **GitHub**     | Hosts the repository and project history           |
@@ -38,7 +39,7 @@ TypeScript is a programming language built on top of JavaScript that adds static
 It helps catch errors earlier, makes the code easier to understand, and improves maintainability.
 
 **In this project:**
-TypeScript is used for React components, API requests, user data, and post types.
+TypeScript is used for React components, API requests, and gallery item data.
 
 ---
 
@@ -51,7 +52,7 @@ React is a JavaScript library for building user interfaces.
 It makes it easier to create reusable and interactive UI components.
 
 **In this project:**
-React is used to build the login page, post feed, post forms, and post editing interface.
+React is used to build the gallery, image cards, upload form, and edit interface.
 
 ---
 
@@ -64,7 +65,7 @@ Node.js is a JavaScript runtime that allows JavaScript and TypeScript to run out
 It allows us to build the backend server and handle requests from the frontend.
 
 **In this project:**
-Node.js runs the server that handles authentication and CRUD operations for posts.
+Node.js runs the backend server that handles image uploads and CRUD operations.
 
 ---
 
@@ -77,7 +78,7 @@ PostgreSQL is an open-source relational database management system.
 It provides reliable and structured storage for application data.
 
 **In this project:**
-PostgreSQL stores users, authentication-related information, and posts.
+PostgreSQL stores gallery item information such as titles, descriptions, image paths, and timestamps.
 
 ---
 
@@ -90,16 +91,17 @@ A REST API is a way for different parts of an application to communicate over HT
 It allows the React frontend and Node.js backend to exchange data in a structured way.
 
 **In this project:**
-The frontend communicates with endpoints such as:
+The frontend communicates with the backend through endpoints such as:
 
 ```text
-POST   /api/auth/login
-POST   /api/auth/register
-GET    /api/posts
-POST   /api/posts
-PUT    /api/posts/:id
-DELETE /api/posts/:id
+GET    /api/gallery
+GET    /api/gallery/:id
+POST   /api/gallery
+PUT    /api/gallery/:id
+DELETE /api/gallery/:id
 ```
+
+These endpoints provide the basic CRUD operations for the gallery.
 
 ---
 
@@ -109,7 +111,7 @@ DELETE /api/posts/:id
 Git is a version control system used to track changes in a project. GitHub is a platform for hosting Git repositories online.
 
 **Why we use it:**
-They allow us to track development progress, safely manage changes, and share the project.
+They allow us to track development progress, manage changes, and share the project.
 
 **In this project:**
 Git is used to document development through meaningful commits, while GitHub hosts the repository.
@@ -117,18 +119,36 @@ Git is used to document development through meaningful commits, while GitHub hos
 ## Project Structure
 
 ```text
-social-app/
-├── client/          # React + TypeScript frontend
+gallery-app/
+│
+├── client/              # React + TypeScript frontend
 │   ├── src/
 │   └── ...
 │
-├── server/          # Node.js backend
+├── server/              # Node.js backend
 │   ├── src/
+│   ├── uploads/         # Uploaded images
 │   └── ...
 │
 ├── README.md
 └── package.json
 ```
+
+## Database Structure
+
+The application uses PostgreSQL with a simple `gallery_items` table.
+
+```text
+gallery_items
+├── id
+├── title
+├── description
+├── image_url
+├── created_at
+└── updated_at
+```
+
+The database stores the information about each gallery item, while the uploaded image files are stored by the backend.
 
 ## Getting Started
 
@@ -148,16 +168,10 @@ Clone the repository:
 
 ```bash
 git clone <your-github-repository-url>
-cd social-app
+cd gallery-app
 ```
 
-Install dependencies:
-
-```bash
-npm install
-```
-
-If the frontend and backend have separate dependencies:
+Install the dependencies:
 
 ```bash
 cd client
@@ -169,7 +183,7 @@ npm install
 
 ### Environment Variables
 
-Create a `.env` file in the backend directory and configure your database connection and other required variables.
+Create a `.env` file in the `server` directory.
 
 Example:
 
@@ -194,35 +208,36 @@ cd client
 npm run dev
 ```
 
-The application should then be available through the local development URL shown by the frontend server.
+The application should then be available at the local development URL provided by the frontend server.
 
 ## Git Progress
 
-The project development is documented using Git commits.
+The project development is documented using meaningful Git commits.
 
-Example progress:
+Example:
 
 ```text
 Initial project setup
-Add authentication and database configuration
-Add post CRUD functionality
-Improve frontend UI
-Fix bugs and finalize documentation
+Set up PostgreSQL database and REST API
+Add gallery CRUD functionality
+Add image upload functionality
+Improve gallery UI
+Finalize documentation
 ```
 
 At least **3 meaningful commits** are included to demonstrate the development process.
 
 ## Learning Objectives
 
-This project is designed to provide practical experience with:
+This project provides practical experience with:
 
 * TypeScript
 * React
 * Node.js
 * PostgreSQL
 * REST API development
-* Authentication
 * CRUD operations
+* File uploads
 * Git and GitHub
 * Full-stack application structure
 
@@ -230,4 +245,4 @@ This project is designed to provide practical experience with:
 
 **In Development**
 
-The application is being developed as part of a technology research and setup exercise.
+This project is being developed as part of a technology research and environment setup exercise.
