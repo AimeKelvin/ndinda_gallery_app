@@ -137,3 +137,135 @@ footer { min-height: 78px; border-top: 1px solid var(--line); display: flex; jus
   .modal { padding: 20px; border-radius: 18px 18px 12px 12px; max-height: calc(100vh - 24px); }
   .dialog { padding: 24px; }
 }
+
+/* ─────────────────────────────────────────────
+   DETAIL MODAL – moderate size + smoother look
+───────────────────────────────────────────── */
+
+.detail-modal {
+  position: relative;
+  width: min(920px, 92vw);          /* moderate width */
+  max-height: 82vh;                 /* not too tall */
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close button – floating over the image */
+.detail-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.detail-close:hover {
+  background: rgba(0, 0, 0, 0.75);
+  transform: scale(1.05);
+}
+
+/* Layout: image left + info right */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Image side */
+.detail-image-wrap {
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  max-height: 82vh;
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Info side */
+.detail-info {
+  padding: 2rem 1.75rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow-y: auto;
+}
+
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.detail-header h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 650;
+  line-height: 1.25;
+  color: #111;
+}
+
+.detail-header time {
+  font-size: 0.85rem;
+  color: #6b7280;
+  letter-spacing: 0.01em;
+}
+
+.detail-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+/* ── Mobile ── */
+@media (max-width: 720px) {
+  .detail-modal {
+    width: 94vw;
+    max-height: 88vh;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-image-wrap {
+    min-height: 260px;
+    max-height: 42vh;
+  }
+
+  .detail-image {
+    max-height: 42vh;
+  }
+
+  .detail-info {
+    padding: 1.4rem 1.25rem 1.6rem;
+  }
+
+  .detail-header h2 {
+    font-size: 1.25rem;
+  }
+}
