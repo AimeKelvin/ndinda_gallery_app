@@ -6,7 +6,8 @@
     "install:all": "npm --prefix server install && npm --prefix client install",
     "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
     "build": "npm --prefix client run build && npm --prefix server run build",
-    "start": "npm --prefix server start"
+    "start": "npm --prefix server start",
+    "db:migrate": "npm --prefix server run db:migrate"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
