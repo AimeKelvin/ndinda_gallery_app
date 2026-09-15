@@ -86,3 +86,4 @@ export const galleryService = {
     return deleted;
   },
 };
+
